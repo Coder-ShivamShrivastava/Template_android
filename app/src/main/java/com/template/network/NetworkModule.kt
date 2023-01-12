@@ -68,15 +68,7 @@ class NetworkModule {
     @Singleton
     fun provideApiService(retrofit: Retrofit): RetrofitApi = retrofit.create(RetrofitApi::class.java)
 
-    @Provides
-    @Singleton
-    fun exceptionHandler() = CoroutineExceptionHandler { _, t ->
-        t.printStackTrace()
 
-        CoroutineScope(Dispatchers.Main).launch {
-            t.printStackTrace()
-        }
-    }
 
 
 }
